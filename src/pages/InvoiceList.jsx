@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { InvoiceContext } from '../context/InvoiceContext';
 import noInvoice from '../assets/attention.png'
+
 export const InvoiceList = ({ onOpenNewModal }) => {
   const { invoices } = useContext(InvoiceContext);
   const [filter, setFilter] = useState('All');
@@ -23,7 +24,7 @@ export const InvoiceList = ({ onOpenNewModal }) => {
           <div className="relative">
             <button 
               onClick={() => setDropdownOpen(!dropdownOpen)} 
-              className="font-bold text-[#0c0e16] text-sm md:text-base flex items-center gap-2 focus:outline-none"
+              className="font-bold text-[#0c0e16] text-sm md:text-base cursor-pointer flex items-center gap-2 focus:outline-none"
             >
               Filter {filter !== 'All' && <span className="hidden md:inline">by status</span>} {filter !== 'All' && `: ${filter}`} ▼
             </button>

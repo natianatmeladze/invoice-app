@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import { InvoiceProvider, InvoiceContext } from './context/InvoiceContext';
 import { Sidebar } from './components/SideBar';
