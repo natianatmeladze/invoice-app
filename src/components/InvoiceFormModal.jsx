@@ -90,7 +90,6 @@ export const InvoiceFormModal = ({ isOpen, onClose, onSave, initialData }) => {
 
   if (!isOpen) return null;
 
-  // status პარამეტრით ვარეგულირებთ არის თუ არა Draft (დრაფტი) ან Pending (Save & Send)
   const handleFormSubmit = (data, status) => {
     const newInvoice = {
       ...data,
@@ -107,24 +106,19 @@ export const InvoiceFormModal = ({ isOpen, onClose, onSave, initialData }) => {
   };
 
   return (
-    // გარე შავი ფონი, რომელიც საიდბარის მერე იწყება (pl-[100px] დესკტოპზე)
     <div className="fixed inset-0 bg-black/50 z-30 flex justify-start pl-0 md:pl-[100px]">
       
-      {/* მოდალის ძირითადი თეთრი კონტეინერი */}
       <div className="bg-white w-full max-w-2xl h-full flex flex-col relative shadow-2xl rounded-none md:rounded-r-[30px]">
         
-        {/* სათაური */}
         <div className="px-6 md:px-12 pt-8 md:pt-10 pb-4 bg-white z-10">
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#0c0e16]">
             {initialData ? `Edit #${initialData.id}` : 'New Invoice'}
           </h2>
         </div>
 
-        {/* სქროლვადი ფორმა */}
         <div className="flex-1 overflow-y-auto px-6 md:px-12 pb-32">
           <form id="invoice-form" className="flex flex-col gap-6 pt-4">
             
-            {/* Bill From */}
             <div>
               <h4 className="text-[#7c5dfa] font-bold text-xs mb-3 tracking-wide">Bill From</h4>
               <label className="text-xs text-[#7e88c3] font-bold">Street Address</label>
@@ -147,7 +141,6 @@ export const InvoiceFormModal = ({ isOpen, onClose, onSave, initialData }) => {
               </div>
             </div>
 
-            {/* Bill To */}
             <div>
               <h4 className="text-[#7c5dfa] font-bold text-xs mb-3 tracking-wide">Bill To</h4>
               <div className="mb-3">
@@ -182,7 +175,6 @@ export const InvoiceFormModal = ({ isOpen, onClose, onSave, initialData }) => {
               </div>
             </div>
 
-            {/* Date & Terms */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-xs text-[#7e88c3] font-bold">Invoice Date</label>
@@ -204,7 +196,6 @@ export const InvoiceFormModal = ({ isOpen, onClose, onSave, initialData }) => {
               <input {...register('projectDescription')} placeholder="e.g. Graphic Design Service" className="w-full border rounded-md p-3 mt-1 border-gray-200 text-sm" />
             </div>
 
-            {/* Item List */}
             <div>
               <h3 className="text-lg font-bold text-[#777f98] mb-3">Item List</h3>
               {fields.map((field, index) => (
@@ -244,7 +235,6 @@ export const InvoiceFormModal = ({ isOpen, onClose, onSave, initialData }) => {
           </form>
         </div>
 
-        {/* ქვედა ფიქსირებული თეთრი პანელი ღილაკებით (Discard, Save as Draft, Save & Send) */}
         <div className="absolute bottom-0 left-0 right-0 bg-white px-6 md:px-12 py-5 flex flex-wrap justify-between items-center gap-3 shadow-[0_-10px_30px_rgba(0,0,0,0.08)] rounded-none md:rounded-r-[30px] z-20">
           <button
             type="button"
